@@ -41,7 +41,7 @@ white='\e[1;37m'
 
 
 echo -e $green     '======================================================'
-echo -e $cyan"%  " $lightpurple"    Hello"$red "Tongkol" $lightpurple"Welcome on" $red"Planetwork-Termux $cyan     %"
+echo -e $cyan"%  " $lightpurple"    Hello"$red "Tongkol" $lightpurple"Welcome on" $red"Planetwork-Termux $cyan    %"
 echo -e $cyan"%  " $lightpurple"              Created By:"$red "Hydra7" $lightpurple""$cyan"                  %"
 echo -e $cyan"%  " $lightpurple"          Fanspage:"$red "IndonesianDarkIT" $lightpurple""$cyan"              %"
 echo -e $cyan"%  " $lightpurple"      MyForum :"$red" https://gorontalo"$white"darkit.com"   $cyan"       %"
