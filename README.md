@@ -11,6 +11,7 @@ git clone https://github.com/Hydra7/Planetwork-Termux
 
 #Usage
 cd Planetwork-Termux
+chmod +x PNT-Termux
 ./PNT-Termux
 
 
