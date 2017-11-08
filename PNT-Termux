@@ -49,26 +49,26 @@ echo -e $green     '======================================================'
 echo -e $white" Select Menu  :"
 echo -e $white"           01)" $red"Red_Hawk"
 echo -e $white"           02)" $red"D-Tect"
-echo -e $white"           03)" $red"PlanetworkScanner"
-echo -e $white"           04)" $red"Wpscan"
-echo -e $white"           05)" $red"Sqlmap"
-echo -e $white"           06)" $red"Webdav"
-echo -e $white"           07)" $red"Metasploit"
-echo -e $white"           08)" $red"Kali-Nethunter"
-echo -e $white"           09)" $red"Termux-Ubuntu"
-echo -e $white"           10)" $red"Planetwork-Hash"
-echo -e $white"           11)" $red"viSQL"
-echo -e $white"           12)" $red"RouterSploit"
-echo -e $white"           13)" $red"Planetwork-DDOS"
-echo -e $white"           14)" $red"FbBrute"
-echo -e $white"           15)" $red"Ngrok"
-echo -e $white"           16)" $red"Exploiter SQL Lokomedia"
+echo -e $white"           03)" $red"Ngrok"
+echo -e $white"           04)" $red"FbBrute"
+echo -e $white"           05)" $red"Webdav"
+echo -e $white"           06)" $red"viSQL"
+echo -e $white"           07)" $red"Sqlmap"
+echo -e $white"           08)" $red"Wpscan"
+echo -e $white"           09)" $red"Uniscan"
+echo -e $white"           10)" $red"Xshell"
+echo -e $white"           11)" $red"Kali-Nethunter"
+echo -e $white"           12)" $red"Metasploit"
+echo -e $white"           13)" $red"RouterSploit"
+echo -e $white"           14)" $red"Exploiter SQL Lokomedia"
+echo -e $white"           15)" $red"KatanaFramework"
+echo -e $white"           16)" $red"1337Hash"
 echo -e $white"           17)" $red"Hash-Buster"
-echo -e $white"           18)" $red"KatanaFramework"
-echo -e $white"           19)" $red"termux-sudo"
-echo -e $white"           20)" $red"Uniscan"
-echo -e $white"           21)" $red"Black-Hydra"
-echo -e $white"           22)" $red"1337Hash"
+echo -e $white"           18)" $red"Black-Hydra"
+echo -e $white"           19)" $red"PlanetworkScanner"
+echo -e $white"           20)" $red"Planetwork-DDOS"
+echo -e $white"           21)" $red"termux-sudo"
+echo -e $white"           22)" $red"termux-ubuntu"
 echo -e $white"           23)" $cyan"Exit"
 
 echo -n -e $red'\033[4mSet-->\033[0m'; tput sgr0 #insert your choice
@@ -103,17 +103,86 @@ fi
 if [ $choose = 3 ] || [ $choose = 03 ]
 then
 clear
-echo " Installing PlanetworkScanner "
+echo " Installing Ngrok "
 sleep 1
 pkg upgrade -y
-pkg install python
-pkg install git
+pkg install wget
 cd ..
-git clone https://github.com/Hydra7/PlanetworkScanner
-echo " Installation Planetwork-Admin-Scanner Success "
+mkdir ngrok
+cd ~/ngrok
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
+unzip ngrok-stable-linux-arm.zip
+cd ~/
+echo " Installation Ngrok Success "
 fi
 
 if [ $choose = 4 ] || [ $choose = 04 ]
+then
+clear
+echo " Installing fbbrute "
+sleep 1
+pkg upgrade -y
+pkg install python2
+pkg install python2-dev
+pkg install wget
+pip2 install mechanize
+cd ..
+mkdir fbbrute
+cd ~/fbbrute
+wget https://pastebin.com/raw/aqMBt2xA -O fbbrute.py
+chmod 777 fbbrute.py
+cd ~/
+echo " Installation fbbrute Success "
+fi
+
+if [ $choose = 5 ] || [ $choose = 05 ]
+then
+clear
+echo " Installing Webdav "
+sleep 1
+pkg upgrade -y
+pkg install python2
+pip2 install urllib3 chardet certifi idna requests
+pkg install openssl curl
+pkg install libcurl
+cd ..
+mkdir webdav
+cd ~/webdav
+wget https://pastebin.com/raw/HnVyQPtR -O webdav.py
+chmod 777 webdav.py
+cd ~/
+echo " Installation Webdav Success "
+fi
+
+if [ $choose = 6 ] || [ $choose = 06 ]
+then
+clear
+echo " Installing viSQL "
+sleep 1
+pkg upgrade -y
+pkg install git
+pkg install python2
+cd ..
+git clone https://github.com/blackvkng/viSQL.git
+cd ~/viSQL
+chmod 777 viSQL.py
+cd ~/
+echo " Installation viSQL Success "
+fi
+
+if [ $choose = 7 ] || [ $choose = 07 ]
+then
+clear
+echo " Installing Sqlmap "
+pkg upgrade -y
+pkg install git
+pkg install python2
+cd ..
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+echo " Installation Sqlmap Success "
+fi
+
+if [ $choose = 8 ] || [ $choose = 08 ]
 then
 clear
 echo " Installing Wpscan "
@@ -133,52 +202,31 @@ cd ~/
 echo " Installation WPScan Success "
 fi
 
-if [ $choose = 5 ] || [ $choose = 05 ]
+if [ $choose = 9 ] || [ $choose = 09 ]
 then
 clear
-echo " Installing Sqlmap "
-pkg upgrade -y
-pkg install git
-pkg install python2
-cd ..
-git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-echo " Installation Termux-LazySqlmap Success "
-fi
-
-if [ $choose = 6 ] || [ $choose = 06 ]
-then
-clear
-echo " Installing Webdav "
+echo " Installing Uniscan "
 sleep 1
-pkg upgrade -y
-pkg install python2
-pip2 install urllib3 chardet certifi idna requests
-pkg install openssl curl
-pkg install libcurl
+pkg upgrade -y 
+pkg install git 
 cd ..
-mkdir webdav
-cd ~/webdav
-wget https://pastebin.com/raw/HnVyQPtR -O webdav.py
-chmod 777 webdav.py
-cd ~/
-echo " Installation Webdav Success "
+git clone https://github.com/poerschke/Uniscan
+echo " Installation Uniscan Success "
 fi
 
-if [ $choose = 7 ] || [ $choose = 07 ]
+if [ $choose = 10 ] || [ $choose = 10 ]
 then
 clear
-echo " Installing Metasploit "
+echo " Installing Xshell "
 sleep 1
-pkg upgrade -y
-pkg install wget
+pkg upgrade -y 
+pkg install git 
 cd ..
-wget https://raw.githubusercontent.com/verluchie/termux-metasploit/master/install.sh
-chmod 777 install.sh
-sh install.sh
-echo " Installation Metasploit Success "
+git clone https://github.com/Manisso/Xshell
+echo " Installation Xshell Success "
 fi
 
-if [ $choose = 08 ] || [ $choose = 8 ]
+if [ $choose = 11 ] || [ $choose = 11 ]
 then
 clear
 echo " Installing Nethunter-In-Termux "
@@ -193,7 +241,143 @@ sh kalinethunter
 echo " Installation Nethunter-In-Termux Success "
 fi
 
-if [ $choose = 09 ] || [ $choose = 9 ]
+if [ $choose = 12 ] || [ $choose = 12 ]
+then
+clear
+echo " Installing Metasploit "
+sleep 1
+pkg upgrade -y
+pkg install wget
+cd ..
+wget https://raw.githubusercontent.com/verluchie/termux-metasploit/master/install.sh
+chmod 777 install.sh
+sh install.sh
+echo " Installation Metasploit Success "
+fi
+
+if [ $choose = 13 ] || [ $choose = 13 ]
+then
+clear
+echo " Installing routersploit "
+sleep 1
+pkg upgrade -y 
+pkg install git
+cd ..
+git clone https://github.com/reverse-shell/routersploit
+echo " Installation routersploit Success "
+fi
+
+if [ $choose = 14 ] || [ $choose = 14  ]
+then
+clear
+echo " Installing lokomed "
+sleep 1
+pkg upgrade -y
+pkg install wget
+pkg install php
+cd ..
+mkdir lokmed
+cd ~/lokmed
+wget https://pastebin.com/raw/sPpJRjCZ -O lokmed.php
+chmod 777 lokmed.php
+cd ~/
+echo " Installation lokomed Success "
+fi
+
+if [ $choose = 15 ] || [ $choose = 15 ]
+then
+clear
+echo " Installing KatanaFramework "
+sleep 1
+pkg upgrade -y
+pkg install git
+cd ..
+git clone https://github.com/PowerScript/KatanaFramework.git
+cd KatanaFramework
+sudo sh dependencies
+sudo python install
+echo " Installation KatanaFramework Success "
+fi
+
+if [ $choose = 16 ] || [ $choose = 16 ]
+then
+clear
+echo " Installing 1337Hash "
+sleep 1
+pkg upgrade -y 
+pkg install git
+pkg install python2
+cd ..
+git clone https://github.com/Gameye98/1337Hash.git
+echo " Installation 1337Hash Success "
+fi
+
+if [ $choose = 17 ] || [ $choose = 17  ]
+then
+clear
+echo " Installing Hash-Buster "
+sleep 1
+pkg upgrade -y
+pkg install python2
+pkg install git
+cd ..
+git clone https://github.com/UltimateHackers/Hash-Buster
+echo " Installation Hash-Buster Success "
+fi
+
+if [ $choose = 18 ] || [ $choose = 18 ]
+then
+clear
+echo " Installing Black-Hydra "
+sleep 1
+pkg upgrade -y 
+pkg install git
+cd ..
+git clone https://github.com/Gameye98/Black-Hydra
+echo " Installation Uniscan Success "
+fi
+
+if [ $choose = 19 ] || [ $choose = 19 ]
+then
+clear
+echo " Installing PlanetworkScanner "
+sleep 1
+pkg upgrade -y
+pkg install python
+pkg install git
+cd ..
+git clone https://github.com/Hydra7/PlanetworkScanner
+echo " Installation Planetwork-Admin-Scanner Success "
+fi
+
+if [ $choose = 20 ] || [ $choose = 20 ]
+then
+clear
+echo " Installing Planetwork-DDOS "
+sleep 1
+pkg upgrade -y 
+pkg install git 
+cd ..
+git clone https://github.com/Hydra7/Planetwork-DDOS
+echo " Installation Planetwork-DDOS Success "
+fi
+
+if [ $choose = 21 ] || [ $choose = 21 ]
+then
+clear
+echo " Installing termux-sudo "
+sleep 1
+pkg upgrade -y 
+pkg install ncurses-utils -y
+pkg install git 
+cd ..
+git clone https://github.com/st42/termux-sudo
+cat sudo > /data/data/com.termux/files/usr/bin/sudo
+chmod 700 /data/data/com.termux/files/usr/bin/sudo
+echo " Installation termux-sudo Success "
+fi
+
+if [ $choose = 22 ] || [ $choose = 22 ]
 then
 clear
 echo " Installing termux-ubuntu "
@@ -213,190 +397,6 @@ echo "nameserver 8.8.8.8" > /data/data/com.termux/files/home/termux-ubuntu/ubunt
 echo " Installation termux-ubuntu Success "
 fi
 
-if [ $choose = 10 ] || [ $choose = 10 ]
-then
-clear
-echo " Installing Planetwork-Hash "
-sleep 1
-pkg upgrade -y 
-pkg install git 
-cd ..
-git clone https://github.com/Hydra7/Planetwork-Hash
-echo " Installation Planetwork-Hash Success "
-fi
-
-if [ $choose = 11 ] || [ $choose = 11 ]
-then
-clear
-echo " Installing viSQL "
-sleep 1
-pkg upgrade -y
-pkg install git
-pkg install python2
-cd ..
-git clone https://github.com/blackvkng/viSQL.git
-cd ~/viSQL
-chmod 777 viSQL.py
-cd ~/
-echo " Installation viSQL Success "
-fi
-
-if [ $choose = 12 ] || [ $choose = 12 ]
-then
-clear
-echo " Installing routersploit "
-sleep 1
-pkg upgrade -y 
-pkg install git
-cd ..
-git clone https://github.com/reverse-shell/routersploit
-echo " Installation routersploit Success "
-fi
-
-if [ $choose = 13 ] || [ $choose = 13 ]
-then
-clear
-echo " Installing Planetwork-DDOS "
-sleep 1
-pkg upgrade -y 
-pkg install git 
-cd ..
-git clone https://github.com/Hydra7/Planetwork-DDOS
-echo " Installation Planetwork-DDOS Success "
-fi
-
-if [ $choose = 14 ] || [ $choose = 14 ]
-then
-clear
-echo " Installing fbbrute "
-sleep 1
-pkg upgrade -y
-pkg install python2
-pkg install python2-dev
-pkg install wget
-pip2 install mechanize
-cd ..
-mkdir fbbrute
-cd ~/fbbrute
-wget https://pastebin.com/raw/aqMBt2xA -O fbbrute.py
-chmod 777 fbbrute.py
-cd ~/
-echo " Installation fbbrute Success "
-fi
-
-if [ $choose = 15 ] || [ $choose = 15 ]
-then
-clear
-echo " Installing Ngrok "
-sleep 1
-pkg upgrade -y
-pkg install wget
-cd ..
-mkdir ngrok
-cd ~/ngrok
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
-unzip ngrok-stable-linux-arm.zip
-cd ~/
-echo " Installation Ngrok Success "
-fi
-
-if [ $choose = 16 ] || [ $choose = 16  ]
-then
-clear
-echo " Installing lokomed "
-sleep 1
-pkg upgrade -y
-pkg install wget
-pkg install php
-cd ..
-mkdir lokmed
-cd ~/lokmed
-wget https://pastebin.com/raw/sPpJRjCZ -O lokmed.php
-chmod 777 lokmed.php
-cd ~/
-echo " Installation lokomed Success "
-fi
-
-if [ $choose = 17 ] || [ $choose = 17  ]
-then
-clear
-echo " Installing Hash-Buster "
-sleep 1
-pkg upgrade -y
-pkg install python2
-pkg install git
-cd ..
-git clone https://github.com/UltimateHackers/Hash-Buster
-echo " Installation Hash-Buster Success "
-fi
-
-if [ $choose = 18 ] || [ $choose = 18 ]
-then
-clear
-echo " Installing KatanaFramework "
-sleep 1
-pkg upgrade -y
-pkg install git
-cd ..
-git clone https://github.com/PowerScript/KatanaFramework.git
-cd KatanaFramework
-sudo sh dependencies
-sudo python install
-echo " Installation KatanaFramework Success "
-fi
-
-if [ $choose = 19 ] || [ $choose = 19 ]
-then
-clear
-echo " Installing termux-sudo "
-sleep 1
-pkg upgrade -y 
-pkg install ncurses-utils -y
-pkg install git 
-cd ..
-git clone https://github.com/st42/termux-sudo
-cat sudo > /data/data/com.termux/files/usr/bin/sudo
-chmod 700 /data/data/com.termux/files/usr/bin/sudo
-echo " Installation termux-sudo Success "
-fi
-
-if [ $choose = 20 ] || [ $choose = 20 ]
-then
-clear
-echo " Installing Uniscan "
-sleep 1
-pkg upgrade -y 
-pkg install git 
-cd ..
-git clone https://github.com/poerschke/Uniscan
-echo " Installation Uniscan Success "
-fi
-
-if [ $choose = 21 ] || [ $choose = 21 ]
-then
-clear
-echo " Installing Black-Hydra "
-sleep 1
-pkg upgrade -y 
-pkg install git
-cd ..
-git clone https://github.com/Gameye98/Black-Hydra
-echo " Installation Uniscan Success "
-fi
-
-if [ $choose = 22 ] || [ $choose = 22 ]
-then
-clear
-echo " Installing 1337Hash "
-sleep 1
-pkg upgrade -y 
-pkg install git
-pkg install python2
-cd ..
-git clone https://github.com/Gameye98/1337Hash.git
-echo " Installation 1337Hash Success "
-fi
-
 if [ $choose = 23 ] || [ $choose = 23 ]
 then
 echo " Keluar :( "
@@ -411,4 +411,3 @@ echo " Greetz   : Planetwork & Dark-IT TeaM"
 sleep 1
 exit
 fi
-
